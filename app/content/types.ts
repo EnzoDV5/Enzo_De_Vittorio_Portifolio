@@ -45,6 +45,8 @@ export type Project = {
   /** Older work shown under "Earlier work" on /work, grouped by year. */
   earlier?: boolean;
   status?: "in-progress";
+  /** A native mobile app: its case study shows the phone on its own and no browser chrome. */
+  app?: boolean;
   order: number;
   recognition?: string;
   /** Brand colour used for project panels and mockup frames. */

@@ -158,6 +158,7 @@ try {
   for (const target of selected) {
     for (const [name, device] of Object.entries(devices)) {
       if (deviceFilter && deviceFilter !== name) continue;
+      if (target.app && name === "laptop") continue;
       const { motion } = device;
       const frames = only
         ? only.split(",").map(Number)

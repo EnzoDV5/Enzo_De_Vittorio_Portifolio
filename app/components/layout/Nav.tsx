@@ -83,7 +83,7 @@ export function Nav() {
           className={cn(
             "relative z-10 flex h-14 items-center justify-between gap-4 rounded-full border pr-2 pl-2.5 transition-[background-color,border-color,box-shadow] duration-500 md:h-16",
             scrolled || open
-              ? "border-line bg-surface/80 shadow-[0_12px_40px_-20px_rgb(12_14_22/0.35)] backdrop-blur-xl"
+              ? "border-line bg-surface/88 shadow-[0_12px_40px_-20px_rgb(12_14_22/0.35)] backdrop-blur-md"
               : "border-transparent bg-transparent",
           )}
         >

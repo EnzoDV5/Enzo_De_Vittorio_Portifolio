@@ -101,11 +101,19 @@ function Row({
 
 type GalleryItem = NonNullable<ProjectDetail["gallery"]>[number];
 
-function InlineImage({ image, address }: { image: GalleryItem; address?: string }) {
+function InlineImage({
+  image,
+  address,
+  bare,
+}: {
+  image: GalleryItem;
+  address?: string;
+  bare?: boolean;
+}) {
   return (
     <Container as="figure" className="pt-16 md:pt-24">
       <RevealMedia className="rounded-md">
-        <BrowserFrame label={address}>
+        <BrowserFrame label={address} bare={bare}>
           <div className="relative aspect-[16/10] bg-bg-2">
             <ResponsiveImage
               picture={image.picture}
@@ -262,7 +270,7 @@ export default function CaseStudy({ loaderData }: Route.ComponentProps) {
       </Container>
 
       {/* The devices. Full-bleed tint of the project's colour. */}
-      {laptop ? (
+      {laptop || (project.app && project.devices.phone) ? (
         <div className="mt-12 md:mt-16">
           <div
             className={cn("relative mx-[var(--spacing-gutter)] rounded-xl", stage.className)}
@@ -280,7 +288,7 @@ export default function CaseStudy({ loaderData }: Route.ComponentProps) {
         </div>
       ) : (
         <Container className="mt-12 md:mt-16">
-          <BrowserFrame label={address}>
+          <BrowserFrame label={address} bare={project.app}>
             <div className="relative aspect-[16/10] bg-bg-2">
               <ProjectMedia project={project} sizes="94vw" priority />
             </div>
@@ -300,7 +308,7 @@ export default function CaseStudy({ loaderData }: Route.ComponentProps) {
         </Row>
       )}
 
-      {lead && <InlineImage image={lead} address={address} />}
+      {lead && <InlineImage image={lead} address={address} bare={project.app} />}
 
       <Row label={copy.approach} index={2}>
         <ol className="grid gap-4 md:grid-cols-2">
@@ -329,10 +337,13 @@ export default function CaseStudy({ loaderData }: Route.ComponentProps) {
             label={copy.gallery}
             hint={copy.galleryHint}
             address={address}
+            bare={project.app}
           />
         </div>
       )}
-      {rest.length === 1 && rest[0] && <InlineImage image={rest[0]} address={address} />}
+      {rest.length === 1 && rest[0] && (
+        <InlineImage image={rest[0]} address={address} bare={project.app} />
+      )}
 
       <Row label={copy.highlights} index={3}>
         <ol className="divide-y divide-line border-y border-line">

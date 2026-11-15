@@ -15,6 +15,8 @@ type Props = {
   hint: string;
   /** Shown in each frame's address bar. */
   address?: string;
+  /** No browser chrome around the images (native apps). */
+  bare?: boolean;
 };
 
 /**
@@ -22,7 +24,7 @@ type Props = {
  * strip sideways while the section is pinned. Below 1024px, or with reduced motion, it's a
  * native scroll-snap strip you can swipe, trackpad or arrow-key through.
  */
-export function HorizontalGallery({ images, label, hint, address }: Props) {
+export function HorizontalGallery({ images, label, hint, address, bare }: Props) {
   const section = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const desktop = useMediaQuery("(min-width: 1024px)");
@@ -60,7 +62,7 @@ export function HorizontalGallery({ images, label, hint, address }: Props) {
                   pinned ? "w-[min(68vw,72rem)]" : "w-[85vw] md:w-[70vw]",
                 )}
               >
-                <BrowserFrame label={address}>
+                <BrowserFrame label={address} bare={bare}>
                   <div className="relative aspect-[16/10] bg-bg-2">
                     <ResponsiveImage
                       picture={image.picture}

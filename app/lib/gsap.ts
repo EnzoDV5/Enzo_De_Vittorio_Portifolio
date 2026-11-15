@@ -7,6 +7,9 @@ import { SplitText } from "gsap/SplitText";
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
   gsap.defaults({ ease: "power3.out", duration: 1 });
+  // Mobile browsers resize the viewport as the address bar shows and hides mid-scroll; re-measuring
+  // every trigger then makes pinned sections jump. Real resizes (rotation, desktop) still refresh.
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 export const EASE_IN = "power3.out";

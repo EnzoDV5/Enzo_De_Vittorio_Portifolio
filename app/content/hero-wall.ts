@@ -18,14 +18,14 @@ export const heroWall: string[][] = [
   [
     "projects/one-river-two-memories/gallery-1.jpg",
     "projects/one-river-two-memories/gallery-3.jpg",
-    "projects/honeybee-heroes/gallery-3.jpg",
+    "projects/forge-your-future/gallery-4.jpg",
     "projects/stack-studio/gallery-4.jpg",
   ],
   [
     "projects/mpg-foundation/gallery-2.jpg",
     "projects/one-river-two-memories/gallery-4.jpg",
     "projects/leke-lente-lingo/gallery-1.jpg",
-    "projects/mpg-foundation/gallery-1.jpg",
+    "projects/forge-your-future/gallery-2.jpg",
   ],
   [
     "projects/stack-studio/gallery-1.jpg",

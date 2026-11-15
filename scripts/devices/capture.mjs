@@ -20,7 +20,8 @@ import { targets } from "./targets.mjs";
 
 const OUT = "_originals/devices";
 const only = process.argv[2];
-const selected = targets.filter((t) => !only || t.slug === only);
+// Apps have no site to capture: their phone screen is supplied by hand (see targets.mjs).
+const selected = targets.filter((t) => !t.app && (!only || t.slug === only));
 if (!selected.length) throw new Error(`No capture target "${only}"`);
 
 const types = {

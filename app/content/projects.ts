@@ -9,9 +9,114 @@ import type { Project } from "./types";
 
 const CAPTURED = "Live site, captured October 2026.";
 const CAPTURED_LOCAL = "Production build, captured October 2026.";
+const CAPTURED_FYF = "Live site, captured November 2026.";
 
 export const projects: Project[] = [
   // ───────────────────────────── Featured ─────────────────────────────
+  {
+    slug: "forge-your-future",
+    title: "Forge Your Future",
+    tagline: "Open Window's Digital Open Day: four creative worlds to explore and play.",
+    year: 2026,
+    disciplines: ["Interactive", "Development"],
+    // From the repo (StackStudio-design/Forge_Your_Future_Open_Window): Armand built the mini
+    // games; Enzo built and deployed the rest of the site.
+    role: "Lead developer · Stack Studio",
+    team: [
+      { name: "Enzo De Vittorio", role: "Site build, motion and deployment" },
+      { name: "Armand Naudé", role: "Mini games" },
+    ],
+    client: "Open Window Institute",
+    context: "Client work · Stack Studio, one-week build",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Three.js",
+      "MapLibre GL",
+      "FTPS deploy",
+    ],
+    links: { live: "https://virtualwindow.co.za/fyf/forge-your-future/" },
+    featured: true,
+    order: 1,
+    theme: { accent: "#F5B940", surface: "#120B42" },
+    cover: "projects/forge-your-future/cover.jpg",
+    coverAlt:
+      "Forge Your Future home page, “Find the creative world that fits you.” beside the campaign character, ringed by four orbiting planets",
+    gallery: [
+      {
+        src: "projects/forge-your-future/gallery-1.jpg",
+        alt: "The Visual Communication Design row: its golden planet ringed by student work, beside the school's three majors",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-2.jpg",
+        alt: "“You've arrived in Shape”, the Visual Communication Design world, its character holding a bag of design tools",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-3.jpg",
+        alt: "“Three layers of making”, the Industrial Product Design major with its skills and careers beside the red Build planet",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-4.jpg",
+        alt: "Mini game: “Design your Forge Your Future poster”, an A4 poster editor with characters, lettering, planets and stickers",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-5.jpg",
+        alt: "Mini game: The Lamp Studio, a CAD-style workspace shaping a pink pendant lamp in 3D",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-6.jpg",
+        alt: "“The landmarks” of Film Arts: the film studio, the sound studio and dub-stage, and the acting lab",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-7.jpg",
+        alt: "“Find your launchpad”, the Centurion campus photo beside a live map of the campus",
+        caption: CAPTURED_FYF,
+      },
+      {
+        src: "projects/forge-your-future/gallery-8.jpg",
+        alt: "“Where will your creative path take you?”, the quiz page, a figure floating among the four planets",
+        caption: CAPTURED_FYF,
+      },
+    ],
+    caseStudy: {
+      challenge:
+        "Open Window, the creative university I studied at, came to Stack Studio as a client. They needed a Digital Open Day for their Forge Your Future campaign that lets school leavers explore four creative schools, try the work and find their fit, and we had one week to build it.",
+      approach: [
+        {
+          heading: "A universe, not a brochure",
+          body: "The home page opens on the campaign character with four planets in orbit, one per school. Pick a planet and the character becomes that world's own. Planets on the far side of the orbit pass behind it.",
+        },
+        {
+          heading: "Four worlds, one template",
+          body: "Shape, Capture, Imagine and Build each get their own colours, landmarks, student interviews and work, all rendered from one shared layout. Each world's poster is rebuilt from its PSD layers, and its items dive into the bag on every change of world.",
+        },
+        {
+          heading: "Try the work",
+          body: "Fourteen mini games, one per major, from a poster designer to a 3D lamp studio, plus a five-minute creative activity in every world. Visitors don't read about a degree, they get a taste of it.",
+        },
+        {
+          heading: "Shipped onto their servers",
+          body: "A one-command deploy builds the site for its subfolder and uploads it over encrypted FTP to Open Window's hosting, never touching the live quiz beside it.",
+        },
+      ],
+      highlights: [
+        "Client: Open Window, my own university",
+        "Built in one week as Stack Studio",
+        "Four degree worlds from one shared template",
+        "Fourteen mini games, one per major",
+        "Campaign posters rebuilt from PSD layers and animated",
+        "Interactive campus map with MapLibre GL",
+      ],
+    },
+  },
   {
     slug: "one-river-two-memories",
     title: "One River, Two Memories",
@@ -28,7 +133,7 @@ export const projects: Project[] = [
       code: "https://github.com/EnzoDV08/ONE-RIVER-TWO-MEMORIES_FINAL",
     },
     featured: true,
-    order: 1,
+    order: 2,
     theme: { accent: "#8FB3A6", surface: "#050507" },
     cover: "projects/one-river-two-memories/cover.jpg",
     coverAlt: "One River, Two Memories, opening scene of the scroll-driven heritage site",
@@ -104,7 +209,7 @@ export const projects: Project[] = [
       code: "https://github.com/EnzoDV5/Leke-Lente-Lingo",
     },
     featured: true,
-    order: 2,
+    order: 3,
     recognition: "Pendoring Finalist",
     theme: { accent: "#6DB8FF", surface: "#4FC6EF" },
     cover: "projects/leke-lente-lingo/cover.jpg",
@@ -175,7 +280,7 @@ export const projects: Project[] = [
       code: "https://github.com/EnzoDV08/honeybee-heroes",
     },
     featured: true,
-    order: 3,
+    order: 4,
     theme: { accent: "#F4C04E", surface: "#F7F2E0" },
     cover: "projects/honeybee-heroes/cover.jpg",
     coverAlt:
@@ -250,7 +355,7 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis", "Three.js", "Zod"],
     links: { live: todo("Stack Studio live URL") },
     featured: true,
-    order: 4,
+    order: 5,
     theme: { accent: "#FF5A14", surface: "#0A0A0A" },
     mark: "projects/stack-studio/mark.png",
     wordmark: "projects/stack-studio/wordmark.png",
@@ -330,7 +435,7 @@ export const projects: Project[] = [
     stack: ["Vite", "React", "Firestore", "Firebase Hosting", "Firebase Analytics", "EmailJS"],
     links: { live: "https://mpgf.org.za" },
     featured: true,
-    order: 5,
+    order: 6,
     theme: { accent: "#7BC74D", surface: "#15210F" },
     cover: "projects/mpg-foundation/cover.jpg",
     coverAlt:
@@ -405,7 +510,7 @@ export const projects: Project[] = [
     // From the live site: accounts and sign-in, cart, checkout, and admin pages for products,
     // orders, users, analytics and emails (its deployed code), on Firebase.
     tagline: "Wholesale salon supplies store with accounts, checkout and an admin dashboard.",
-    year: todo("Salon Friend year"),
+    year: 2026,
     disciplines: ["Development"],
     role: todo("your role on Salon Friend"),
     client: "Salon Friend",
@@ -420,22 +525,161 @@ export const projects: Project[] = [
       "Salon Friend home page, “Everything behind the chair, in one delivery.” over shelves of salon products",
   },
   {
-    slug: "hushly-mobile-app",
-    title: "Hushly Mobile App",
-    tagline: "A gesture-led mindfulness app for a calmer moment, one shake away.",
+    slug: "sympli",
+    title: "Sympli",
+    tagline: "An AI health assistant that turns a chat into medication reminders.",
     year: 2025,
-    disciplines: ["UX", "Development"],
+    disciplines: ["Development", "UX"],
+    // Every commit in the repo is Enzo's.
     role: "Design and development",
     client: "Academic",
     context: "Third year",
-    stack: ["React Native", "Expo", "OpenAI API", "Firebase", "TypeScript", "Reanimated"],
+    stack: [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "OpenAI gpt-4o-mini",
+      "Google Cloud Text-to-Speech",
+      "Riverpod",
+      "GoRouter",
+      "Lottie",
+    ],
+    links: { code: "https://github.com/EnzoDV08/Sympli-AI-health" },
+    featured: false,
+    order: 8,
+    app: true,
+    theme: { accent: "#19C08F", surface: "#E6F5F2" },
+    cover: "projects/sympli/cover.jpg",
+    coverAlt:
+      "The Sympli logo beside two phones: the home screen, “Welcome to Sympli Chat”, and the Sympli AI chat",
+    // Screens from Enzo's own mockups and demo recording: the repo has no raw screenshots.
+    gallery: [
+      {
+        src: "projects/sympli/gallery-1.jpg",
+        alt: "Four onboarding screens: Sympli Chat, “Tell us a bit about you”, “Any chronic conditions?” and “Allergies & current meds”",
+        caption: "Onboarding, rendered from the app's demo recording.",
+      },
+      {
+        src: "projects/sympli/gallery-2.jpg",
+        alt: "Eight Sympli screens: splash, reminders intro, sign-up, home, AI chat, chat history, account settings and notifications",
+        caption: "Every core screen, from Enzo's mockups.",
+      },
+      {
+        src: "projects/sympli/gallery-3.jpg",
+        alt: "Three phones: chat history, the Sympli AI chat and account settings with medication reminders",
+        caption: "Chat, history and account, from Enzo's mockups.",
+      },
+      {
+        src: "projects/sympli/gallery-4.jpg",
+        alt: "Sympli's final-year showcase board: the home screen, the splash screen, onboarding and a grid of app screens",
+        caption: "Final-year showcase board.",
+      },
+    ],
+    caseStudy: {
+      challenge:
+        "Help people stay on top of their health from their phone: ask about a symptom or a medicine in plain language, and never miss a dose.",
+      approach: [
+        {
+          heading: "A nurse in your pocket",
+          body: "Sympli AI answers questions about symptoms and medication with OpenAI's gpt-4o-mini, keeps the recent conversation as context, and can read its replies aloud with Google Cloud Text-to-Speech.",
+        },
+        {
+          heading: "From chat to reminder",
+          body: "Ask Sympli to remind you about a medicine and it proposes a schedule. Confirm it, and the reminder is saved to Firestore and set as a local notification.",
+        },
+        {
+          heading: "Personal from the start",
+          body: "Onboarding asks for age, chronic conditions, allergies and current medication, so answers fit the person. An EMS button on the home screen dials an ambulance in one tap.",
+        },
+        {
+          heading: "Calm, clear design",
+          body: "Glass cards, soft gradients and Lottie animations, built in Flutter with Riverpod and GoRouter on Firebase.",
+        },
+      ],
+      highlights: [
+        "AI health chat with OpenAI gpt-4o-mini",
+        "Medication reminders created straight from the chat",
+        "Spoken replies with Google Cloud Text-to-Speech",
+        "Personalised onboarding: conditions, allergies and medication",
+        "One-tap EMS call from the home screen",
+        "Google Sign-In and full account deletion",
+      ],
+    },
+  },
+  {
+    slug: "hushly",
+    title: "Hushly",
+    tagline: "A mindfulness app you start by shaking your phone.",
+    year: 2025,
+    disciplines: ["UX", "Development"],
+    // Every commit in the repo is Enzo's.
+    role: "Design and development",
+    client: "Academic",
+    context: "Third year",
+    stack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Firebase",
+      "Reanimated",
+      "Expo Sensors",
+      "Expo AV",
+    ],
     links: { code: "https://github.com/EnzoDV08/Hushly-MobileApp" },
     featured: false,
-    earlier: true,
-    order: 11,
-    theme: { accent: "#7865DA" },
+    order: 9,
+    app: true,
+    theme: { accent: "#7865DA", surface: "#141625" },
     cover: "projects/hushly/cover.png",
     coverAlt: "Hushly brand and three mobile app screens for mindful breathing",
+    gallery: [
+      {
+        src: "projects/hushly/gallery-1.jpg",
+        alt: "Three phones: “Welcome to Hushly” with a left or right preferred side, Sign in and Sign up",
+        caption: "Onboarding and accounts. Real screenshots from the app.",
+      },
+      {
+        src: "projects/hushly/gallery-2.jpg",
+        alt: "The Hushly logo beside the home screen, with a breathing orb and today's progress, and the “Shake to release tension” session timer",
+        caption: "Home and a shake-started session. Real screenshots from the app.",
+      },
+      {
+        src: "projects/hushly/gallery-3.jpg",
+        alt: "Three phones: Ambient Sounds with a mini player, Session History with stats, and Settings with shake sensitivity and one-handed mode",
+        caption: "Sounds, history and settings. Real screenshots from the app.",
+      },
+      {
+        src: "projects/hushly/gallery-4.jpg",
+        alt: "Hushly's final-year showcase board: the logo, the “Find Your Calm” onboarding screen and a grid of app screens",
+        caption: "Final-year showcase board.",
+      },
+    ],
+    caseStudy: {
+      challenge:
+        "Stress doesn't wait for you to find the right screen. Hushly had to start a calming session in the moment, with almost no effort, and work with one hand.",
+      approach: [
+        {
+          heading: "Shake to start",
+          body: "The accelerometer listens for a shake and starts a guided breathing session straight away. A live meter shows the shake's intensity, and the sensitivity is yours to set.",
+        },
+        {
+          heading: "Built for one hand",
+          body: "Choose a preferred side and the key buttons move to your thumb. A floating back button replaces the top-corner arrow, and haptics confirm each action.",
+        },
+        {
+          heading: "Sound and progress",
+          body: "Rain, ocean waves, forest and wind chimes stream from Firebase into a mini player, with a default you pick. Every session is saved, with fastest, average and total times and notes.",
+        },
+      ],
+      highlights: [
+        "Shake-to-start sessions with the accelerometer",
+        "One-handed mode with a preferred side",
+        "Ambient soundscapes with a mini player",
+        "Session history and stats in Firestore",
+        "Haptic feedback throughout",
+        "Firebase accounts and profiles",
+      ],
+    },
   },
 
   // ───────────────────────────── Earlier work ─────────────────────────────

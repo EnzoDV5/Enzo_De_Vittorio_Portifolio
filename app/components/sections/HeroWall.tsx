@@ -34,14 +34,15 @@ export function HeroWall({ columns }: { columns: HeroWallColumn[] }) {
       <div ref={root} aria-hidden="true" className="group/wall absolute inset-0 overflow-hidden">
         <div
           ref={wall}
-          className="absolute top-1/2 left-1/2 flex w-[165%] screen-wall gap-4 md:gap-6"
+          className="absolute top-1/2 left-1/2 flex w-[165%] screen-wall gap-4 will-change-transform md:gap-6"
         >
           {columns.map((column, c) => (
             <div key={c} className="min-w-0 flex-1">
               <div
                 data-wall-column
                 className={cn(
-                  "flex flex-col gap-4 pb-4 md:gap-6 md:pb-6",
+                  // Its own GPU layer: the columns move every frame, which must not repaint the screens.
+                  "flex flex-col gap-4 pb-4 will-change-transform md:gap-6 md:pb-6",
                   "group-data-[fx=on]/wall:animate-none motion-safe:animate-wall",
                   c % 2 === 1 && "[animation-direction:reverse]",
                 )}

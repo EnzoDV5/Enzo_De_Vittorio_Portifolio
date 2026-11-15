@@ -32,6 +32,62 @@ export function DeviceStage({ devices, label, captions, hint, className }: Props
   const phoneCanvas = useRef<HTMLCanvasElement>(null);
   const motion = useMotionAllowed();
   const { laptop, phone } = devices;
+  if (!laptop && !phone) return null;
+
+  // A native app has no laptop: the phone takes the stage on its own and turns to face you.
+  if (!laptop && phone) {
+    return (
+      <>
+        <section
+          ref={section}
+          aria-label={label}
+          className={cn("relative", motion ? "h-[200svh]" : "py-12 md:py-20", className)}
+        >
+          <div className={cn(motion && "sticky top-0 flex h-svh items-center overflow-clip")}>
+            {motion && hint && (
+              <p className="absolute inset-x-0 top-24 flex items-center justify-center gap-2 text-sm font-semibold text-fg/70 md:top-28">
+                <ArrowDown className="size-4 motion-safe:animate-bounce" aria-hidden />
+                {hint}
+              </p>
+            )}
+            <div className="container-site w-full">
+              <div
+                ref={phoneBox}
+                className="relative mx-auto aspect-[3/4] w-full max-w-[min(100%,calc((100svh-9rem)*0.75))] will-change-transform"
+              >
+                <DeviceImage
+                  lastFrame
+                  sequence={phone}
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className="absolute inset-0 transition-opacity duration-300"
+                />
+                {motion && (
+                  <canvas
+                    ref={phoneCanvas}
+                    aria-hidden="true"
+                    className="absolute inset-0 size-full"
+                  />
+                )}
+                <p className="absolute right-[18%] bottom-0 meta text-muted">{captions.phone}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {motion && (
+          <Island>
+            <DeviceStageFx
+              devices={devices}
+              section={section}
+              laptopBox={laptopBox}
+              phoneBox={phoneBox}
+              laptopCanvas={laptopCanvas}
+              phoneCanvas={phoneCanvas}
+            />
+          </Island>
+        )}
+      </>
+    );
+  }
   if (!laptop) return null;
 
   return (

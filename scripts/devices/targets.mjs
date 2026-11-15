@@ -9,6 +9,8 @@
  * - hideMobile: the same, for the phone capture only (overrides `hide` there)
  * - redact: words whose elements are hidden before capture (no location on this site)
  * - finish: the iPhone's colour in this project's renders
+ * - app: a native app with no site to capture. Only the phone is rendered, from a screen you
+ *   put in _originals/devices/<slug>/mobile.png yourself (1206×2436, below the status bar).
  */
 const DV200 = "/Users/enzodevittorio/Desktop/DV 200/Semester 1/Term 1/Week 2";
 
@@ -46,6 +48,27 @@ export const targets = [
     motion: true,
     settle: 6000,
     finish: "#2b2d33",
+  },
+  {
+    slug: "forge-your-future",
+    url: "https://virtualwindow.co.za/fyf/forge-your-future/",
+    stops: [0],
+    // The hero's planets orbit and its art assembles on load: let it finish.
+    motion: true,
+    settle: 7000,
+    finish: "#5b4a9e",
+  },
+  {
+    slug: "hushly",
+    // Screen: the app's own welcome screenshot (repo assets/Screenshot1.jpg), status bar trimmed.
+    app: true,
+    finish: "#4a35a8",
+  },
+  {
+    slug: "sympli",
+    // Screen: the AI chat, from Enzo's Sympli_Mockups.png board (the repo has no raw screenshots).
+    app: true,
+    finish: "#2aa892",
   },
   {
     slug: "mpg-foundation",

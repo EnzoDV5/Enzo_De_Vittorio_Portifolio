@@ -34,7 +34,44 @@ export default function DeviceStageFx({
 }: Props) {
   useGSAP(() => {
     const root = section.current;
-    if (!root || !devices.laptop || !laptopCanvas.current) return;
+    if (!root) return;
+
+    // Phone on its own (a native app): it turns round to face you and settles.
+    if (!devices.laptop && devices.phone && phoneCanvas.current) {
+      const solo = createSequencePlayer(
+        phoneCanvas.current,
+        devices.phone,
+        hideStill(phoneCanvas.current),
+      );
+      if (!solo) return;
+      const state = { phone: 0 };
+      solo.draw(0);
+      gsap
+        .timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: { trigger: root, start: "top top", end: "bottom bottom", scrub: 0.6 },
+        })
+        .to(
+          state,
+          {
+            phone: solo.count - 1,
+            duration: 0.85,
+            ease: "power2.inOut",
+            onUpdate: () => solo.draw(state.phone),
+          },
+          0,
+        )
+        .fromTo(
+          phoneBox.current,
+          { scale: 0.88, yPercent: 6 },
+          { scale: 1, yPercent: 0, duration: 0.85, ease: "power2.out" },
+          0,
+        )
+        .to({}, { duration: 0.15 });
+      return () => solo.dispose();
+    }
+
+    if (!devices.laptop || !laptopCanvas.current) return;
     const laptop = createSequencePlayer(
       laptopCanvas.current,
       devices.laptop,
